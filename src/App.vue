@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="main">
+    <div class="exitBtn">
+   <exitButton/>
+   </div>
+   <div class="container">
+  <countdown/>
+   </div>
+   <div class="nextPageButton">
+     <nextPageBtn/>
+   </div>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import exitButton from './components/exitButton.vue'
+import nextPageBtn from './components/nextPageBtn.vue'
+import countdown from './components/countdown.vue'
+export default {
+components:{
+  exitButton,
+  nextPageBtn,
+  countdown
+},
 }
-
-#nav {
-  padding: 30px;
+</script>
+<style scoped>
+.main{
+  background-color: #e5e5e5;
+  width: 100vw;
+  height: 100vh;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.container{
+  margin-left: 10vw;
+  margin-top: 3vh;
+  width: 80vw;
+  height: 75vh;
+  background: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.exitBtn{
+  padding-top: 3vh;
+  padding-left: 88vw;
+}
+.nextPageButton{
+  padding-top: 3vh;
+  padding-left: 85vw;
 }
 </style>

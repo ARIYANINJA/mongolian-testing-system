@@ -1,7 +1,5 @@
 <template>
-  <h1>
-    hi i am home page 
-  </h1>
+  <b-button pill variant="outline-danger" size="lg">ГАРАХ</b-button>
 </template>
 
 <script>

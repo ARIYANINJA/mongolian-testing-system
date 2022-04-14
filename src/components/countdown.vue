@@ -1,7 +1,5 @@
 <template>
-  <h1>
-    hi i am home page 
-  </h1>
+  <h1>hi there</h1>
 </template>
 
 <script>
