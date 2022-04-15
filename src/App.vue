@@ -5,6 +5,7 @@
    </div>
    <div class="container">
   <countdown/>
+  <progressBar/>
    </div>
    <div class="nextPageButton">
      <nextPageBtn/>
@@ -16,11 +17,13 @@
 import exitButton from './components/exitButton.vue'
 import nextPageBtn from './components/nextPageBtn.vue'
 import countdown from './components/countdown.vue'
+import progressBar from './components/progressBar.vue'
 export default {
 components:{
   exitButton,
   nextPageBtn,
-  countdown
+  countdown,
+  progressBar
 },
 }
 </script>

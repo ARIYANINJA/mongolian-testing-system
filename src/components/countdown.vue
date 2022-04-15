@@ -6,15 +6,13 @@
 export default {
   data(){
     return{
-      minutes : 0,
-      seconds : 0,
     }
   },
 mounted(){
-  const startingMinutes = 3;
+  const startingMinutes = 1;
   let time = startingMinutes * 60;
   const countdownEl = document.getElementById('countdown');
-  setInterval(updateCountdown,1000);
+   setInterval(updateCountdown,1000);
   function updateCountdown(){
      let minutes = Math.floor(time / 60);
      let seconds = time % 60; 
@@ -22,6 +20,7 @@ mounted(){
      countdownEl.innerHTML = `${minutes} : ${seconds}`;
      time--;
   }
+ 
 }
 }
 </script>
