@@ -8,14 +8,24 @@
   export default {
     data() {
       return {
-        value: 80,
-        max: 100
+       value: 0,
+        max: 0
+      }
+    },
+    mounted(){
+      let startingMinutes = 1
+      this.max = startingMinutes * 60;
+      const myInverval = setInterval(updateCountdown, 1000);
+      let self = this;
+  function updateCountdown() {
+        self.value++;
+        if(self.value === self.max){
+          clearInterval(myInverval);
+        }
       }
     },
     methods: {
-      randomValue() {
-        this.value = Math.random() * this.max
-      }
+
     }
   }
 </script>

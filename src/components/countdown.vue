@@ -1,5 +1,5 @@
 <template>
-  <h1 id="countdown"> 3 : 00  </h1>
+  <h1 id="countdown"> 00 : 00  </h1>
 </template>
 
 <script>
