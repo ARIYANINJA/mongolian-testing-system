@@ -1,25 +1,28 @@
 <template>
-  <h1 id="countdown"> 00 : 00  </h1>
+<div>
+<h1>{{minutes}} : {{seconds}}</h1>
+</div>
 </template>
-
 <script>
 export default {
   data(){
     return{
+      minutes: 0,
+      seconds: 0
     }
   },
 mounted(){
   const startingMinutes = 1;
   let time = startingMinutes * 60;
-  const countdownEl = document.getElementById('countdown');
   const myInverval = setInterval(updateCountdown,1000);
+  let self = this
   function updateCountdown(){
-     let minutes = Math.floor(time / 60);
-     let seconds = time % 60; 
-     seconds = seconds < 10 ? '0' + seconds : seconds;
-     countdownEl.innerHTML = `${minutes} : ${seconds}`;
+     self.minutes = Math.floor(time / 60);
+     self.seconds = time % 60; 
+     self.seconds = self.seconds < 10 ? '0' + self.seconds : self.seconds;
      if(time <= 0 ){
-       clearInterval(myInverval);}
+       clearInterval(myInverval);
+      }
      time--;
   }
 }

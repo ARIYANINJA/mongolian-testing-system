@@ -3,13 +3,12 @@
     <b-progress :value="value" :max="max" animated variant="success"></b-progress>
   </div>
 </template>
-
 <script>
   export default {
     data() {
       return {
        value: 0,
-        max: 0
+       max: 0
       }
     },
     mounted(){
