@@ -4,8 +4,8 @@
    <exitButton/>
    </div>
    <div class="container">
-  <countdown/>
-  <progressBar/>
+  <countdown :StartingMinutes = 'this.minutes'/>
+  <progressBar :StartingMinutes = 'this.minutes'/>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="exam2"/>
@@ -27,7 +27,7 @@ components:{
 },
 data(){
 return{
-  isHomePage: false,
+  minutes: 3,
 }
 },
 methods:{

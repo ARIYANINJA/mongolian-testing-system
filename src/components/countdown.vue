@@ -5,15 +5,20 @@
 </template>
 <script>
 export default {
+  props:{
+    StartingMinutes: Number
+  },
+  created(){
+console.log(this.StartingMinutes);
+  },
   data(){
     return{
-      minutes: 0,
-      seconds: 0
+      minutes: this.StartingMinutes,
+      seconds: "00"
     }
   },
 mounted(){
-  const startingMinutes = 1;
-  let time = startingMinutes * 60;
+  let time = this.StartingMinutes * 60;
   const myInverval = setInterval(updateCountdown,1000);
   let self = this
   function updateCountdown(){

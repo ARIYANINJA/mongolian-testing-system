@@ -5,6 +5,9 @@
 </template>
 <script>
   export default {
+     props:{
+    StartingMinutes: Number
+  },
     data() {
       return {
        value: 0,
@@ -12,8 +15,7 @@
       }
     },
     mounted(){
-      let startingMinutes = 1
-      this.max = startingMinutes * 60;
+      this.max = this.StartingMinutes * 60;
       const myInverval = setInterval(updateCountdown, 1000);
       let self = this;
   function updateCountdown() {
