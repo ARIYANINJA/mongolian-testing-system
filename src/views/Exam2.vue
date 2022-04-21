@@ -8,7 +8,7 @@
   <progressBar/>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn/>
+     <nextPageBtn nextPage="exam3"/>
    </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ methods:{
 </script>
 <style scoped>
 .main{
-  background-color: #e5e5e5;
+  background-color: #95a5a6;
   width: 100vw;
   height: 100vh;
 }
