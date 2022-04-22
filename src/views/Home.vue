@@ -54,7 +54,7 @@ export default {
         this.$router.push('/exam1');
     },
      SeePoint(){
-
+       this.$router.push('/lookPoint');
     },
      LogOut(){
 
@@ -101,7 +101,9 @@ color: black;
 font-size: 1.25rem;
 }
 .main{
-  height: 80vh;
+  border-top: 2px black solid;
+  border-bottom: 2px black solid;
+  height: 88vh;
 }
 .card{
   margin: 6rem 25rem 0 25rem;
