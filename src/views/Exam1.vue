@@ -6,6 +6,7 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
+  <h1>Зөв Бичигдсэн Монгол Үгийг Сонгоно уу </h1>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="exam2"/>

@@ -8,9 +8,6 @@ export default {
   props:{
     StartingMinutes: Number
   },
-  created(){
-console.log(this.StartingMinutes);
-  },
   data(){
     return{
       minutes: this.StartingMinutes,
@@ -18,7 +15,7 @@ console.log(this.StartingMinutes);
     }
   },
 mounted(){
-  let time = this.StartingMinutes * 60;
+  let time = this.StartingMinutes * 60 - 1;
   const myInverval = setInterval(updateCountdown,1000);
   let self = this
   function updateCountdown(){

@@ -1,7 +1,7 @@
 <template>
   <div style = "background: #ecf0f1; width: 100%; height: 100vh; padding-top:-5%;">
       <div class = "title">
-          <h1>Та Шалгалтаа өгч дууссан байна Таны Шалгатын оноо бол</h1>
+          <h1>Та Шалгалтаа өгч дууссан байна Таны Шалгатын оноо бол !</h1>
       </div>
       <div class="main">
           <div class="image">
@@ -13,7 +13,8 @@
           </div>
       </div>
       <div class="footer">
-          <h1>hello i am footer </h1>
+          <b-button @click="beginExam()" size="lg" variant="outline-danger">ДАХИН ШАЛГАЛТ ӨГӨХ</b-button>
+          <b-button @click="BackToHome()" size="lg" variant="info">НҮҮР ХУУДАС РУУ ШИЛЖИХ</b-button>
       </div>
     </div>
 </template>
@@ -30,6 +31,9 @@ export default {
         BackToHome(){
         this.$router.push('/');
     },
+    beginExam(){
+        this.$router.push('/exam1');
+    }
   }
 }
 </script>
@@ -41,6 +45,9 @@ export default {
     text-align: center;
     font-weight: 800;
     color: black;
+    border-radius: 20px;
+    border-bottom: solid 2px black;
+    box-shadow: rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .main{
     padding: 8rem 15rem 0 15rem;
@@ -55,12 +62,23 @@ export default {
 }
 .point{
     text-align: center;
-    padding-top: 5rem;
+    padding: 5rem 1rem 1rem 1rem;
     font-weight: 800;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:8rem;
+    font-size: 8rem;
+    border-radius: 20px;
+    border-bottom: solid 2px black;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    
 }
 .footer{
-    margin-top: 8rem
+    border-top: solid 2px gray;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.footer button{
+    margin-top: 3rem;
 }
 </style>
