@@ -6,14 +6,20 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
-  <h1>Зөв Бичигдсэн Монгол Үгийг Сонгоно уу </h1>
+  <h3 class="title">Зөв Бичигдсэн Монгол Үгнүүдийг Сонгоно уу ! </h3>
+  <div class="words">
+    <ul style="list-style:none;">
+      <li v-for="item in items" :key="item.id">
+        <button>{{item.message}}</button>
+      </li>
+    </ul>
+  </div>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="exam2"/>
    </div>
   </div>
 </template>
-
 <script>
 import exitButton from '../components/exitButton.vue'
 import nextPageBtn from '../components/nextPageBtn.vue'
@@ -29,6 +35,7 @@ components:{
 data(){
 return{
   minutes: 3,
+  items: [{ message: 'eej' }, { message: 'aav' },{ message: 'emee' },{ message: 'uvuu' },{ message: 'ah' },{ message: 'egch' },{ message: 'bi' },]
 }
 },
 methods:{
@@ -64,5 +71,20 @@ methods:{
 .nextPageButton{
   padding-top: 3vh;
   padding-left: 85vw;
+}
+.title{
+  margin-top: 2rem;
+  text-align: center;
+}
+.words ul{
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.words ul li button{
+  width: 10vw;
+  height: 5vh;
 }
 </style>
