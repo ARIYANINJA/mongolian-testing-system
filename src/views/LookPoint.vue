@@ -1,7 +1,7 @@
 <template>
   <div style = "background: #ecf0f1; width: 100%; height: 100vh; padding-top:-5%;">
       <div class = "title">
-          <h1>Та Шалгалтаа өгч дууссан байна Таны Шалгатын оноо бол !</h1>
+          <h1>Та Шалгалтаа өгч дууссан байна Таны Шалгалтын оноо бол !</h1>
       </div>
       <div class="main">
           <div class="image">

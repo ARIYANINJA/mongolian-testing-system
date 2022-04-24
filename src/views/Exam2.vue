@@ -6,6 +6,18 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
+  <h3 class="title">Та Товчлуур Дээр Даран Сонссон Өгүүлбэрээ Бичнэ үү ! </h3>
+  <div class="body">
+  <div class="button" id="button" @click="playAudio()">
+    <img class = "SoundPic" src="../assets/images/Sound.svg" alt="Sound picture">
+  </div>
+  <b-form-textarea
+        class="textarea"
+        size="lg"
+        placeholder="Та Энд Бичвэрээ Бичнэ үү "
+      ></b-form-textarea>
+  </div>
+       <b-tooltip target="button" title="Та Зөвхөн 3 Удаа Аудио Бичлэг Сонсох Боломжтой"></b-tooltip>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="exam3"/>
@@ -36,8 +48,10 @@ methods:{
   },
   getExam(){
     this.isHomePage = false
-  }
-  
+  },
+  playAudio(){
+    console.log("odoo end ug ni audio bichleg yavagdana");
+  },
 },
 }
 </script>
@@ -63,5 +77,33 @@ methods:{
 .nextPageButton{
   padding-top: 3vh;
   padding-left: 85vw;
+}
+.title{
+  margin-top: 2rem;
+  text-align: center;
+}
+.body{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  height: 60%;
+}
+.button{
+  border-radius: 50%;
+  width: 40rem;
+  height: 20rem;
+  background: #00b894;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+.SoundPic{
+  width: 15rem;
+  height: 15rem;
+  padding-top: 5rem;
+  padding-left: 5rem;
+}
+.textarea{
+  margin: 3rem 3rem 3rem 10rem;
+  font-size: 2rem;
 }
 </style>
