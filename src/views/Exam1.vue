@@ -13,7 +13,6 @@
       <label class="option_item">
       <input type="checkbox" class="checkbox">
       <div class="option_inner all">
-        <div class="tickmark"></div>
         <div class="name">{{word.content}}</div>
       </div>
     </label>
@@ -48,9 +47,6 @@ return{
   ],
   choosenWord:[{}]
 }
-},
-created(){
-  console.log(this.words.content);
 },
 methods:{
   Exit(){
