@@ -31,6 +31,21 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Exam4.vue')
   },
   {
+    path: '/exam5',
+    name: 'Exam5',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam5.vue')
+  },
+  {
+    path: '/exam6',
+    name: 'Exam6',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam6.vue')
+  },
+  {
+    path: '/exam7',
+    name: 'Exam7',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam7.vue')
+  },
+  {
     path: '/lookPoint',
     name: 'LookPoint',
     component: () => import(/* webpackChunkName: "about" */ '../views/LookPoint.vue')

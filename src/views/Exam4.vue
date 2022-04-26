@@ -26,7 +26,7 @@
      </div>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn nextPage="lookPoint"/>
+     <nextPageBtn nextPage="exam5"/>
    </div>
   </div>
 </template>
@@ -45,7 +45,7 @@ components:{
 },
 data(){
 return{
-  minutes:1,
+  minutes:3,
   Content: 'Сайн байна уу Би хөгжим сонсох дуртай',
   isRecord: false
 }

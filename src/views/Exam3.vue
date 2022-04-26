@@ -42,7 +42,7 @@ components:{
 },
 data(){
 return{
-  minutes: 5,
+  minutes: 3,
     words: [
     { content: 'ҮГ 1' }, { content: 'ҮГ 2' },{ content: 'ҮГ 3' },{ content: 'ҮГ 4' },{ content: 'ҮГ 5' },{ content: 'ҮГ 6' },
     { content: 'ҮГ 7' }, { content: 'ҮГ 8' }, { content: 'ҮГ 9' }

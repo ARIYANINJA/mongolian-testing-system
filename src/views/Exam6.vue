@@ -20,7 +20,7 @@
        <b-tooltip target="button" title="Та Зөвхөн 3 Удаа Аудио Бичлэг Сонсох Боломжтой"></b-tooltip>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn nextPage="exam3"/>
+     <nextPageBtn nextPage="exam7"/>
    </div>
   </div>
 </template>
