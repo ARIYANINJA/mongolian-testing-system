@@ -114,7 +114,7 @@ methods:{
   width: 100%;
   height: 100%;
   background: #ecf0f1;
-  border-radius: 20 px;
+  border-radius: 20px;
   text-align: center;
   font-size: 1.3rem;
   padding-top: 0.8rem;
