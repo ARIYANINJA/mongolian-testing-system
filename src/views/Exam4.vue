@@ -46,9 +46,22 @@ components:{
 data(){
 return{
   minutes:3,
+  nextPage:"exam5",
   Content: 'Сайн байна уу Би хөгжим сонсох дуртай',
   isRecord: false
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   StartRecording(){

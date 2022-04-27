@@ -45,8 +45,21 @@ return{
     { content: 'хөгжэлтэй' }, { content: 'чрих' },{ content: 'нөгөөдөр' },{ content: 'туулах' },{ content: 'хэлээр' },{ content: 'шаргуу' },
     { content: 'санаа' }, { content: 'сонголг' },{ content: 'хүймүйс' },{ content: 'марафон' },{ content: 'утас' },{ content: 'герээ' },
   ],
-  choosenWord:[{}]
+  choosenWord:[{}],
+  nextPage: "exam9"
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   chooseWord(){

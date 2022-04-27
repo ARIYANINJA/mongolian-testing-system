@@ -40,6 +40,7 @@ components:{
 data(){
 return{
   minutes: 3,
+  nextPage: 'exam2',
   words: [
     { content: 'гишүүн' }, { content: 'хуваацах' },{ content: 'сурах' },{ content: 'бйах' },{ content: 'санух' },{ content: 'хитэрхии' },
     { content: 'хөгжэлтэй' }, { content: 'чрих' },{ content: 'нөгөөдөр' },{ content: 'туулах' },{ content: 'хэлээр' },{ content: 'шаргуу' },
@@ -47,6 +48,18 @@ return{
   ],
   choosenWord:[{}]
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   chooseWord(){

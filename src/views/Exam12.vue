@@ -52,8 +52,21 @@ data(){
 return{
   minutes: 3,
   Content: "Манай оронд асга хадтай уул олон байдаг.Ийм ууланд жижиг сэнж нүхнээс эхлээд том хонгил ч байдаг. Ийм агуйг бүр эртний хүмүүс орон сууц болгож хэрэглэж байжээ. Агуй бол байгалийн сонин зүйлийн нэг юм. Тэндээс түүх дурсгалын ховор сонин зүйл ч олдож болно",
-  tests:[{content:"Агуй"},{content:"Нуур"},{content:"Хүмүүс"},{content:"Байгаль"},]
+  tests:[{content:"Агуй"},{content:"Нуур"},{content:"Хүмүүс"},{content:"Байгаль"},],
+  nextPage: "exam13"
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
 },

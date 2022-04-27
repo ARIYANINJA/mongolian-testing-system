@@ -55,8 +55,21 @@ return{
   minutes: 8,
   QuestionTitle: "Таны хамгийн орох дуртай ресторан юу вэ?",
   Questions:[{content:"Дуртай ресторан чинь хаана байдаг вэ?"},{content:"Taны дуртай хоол юу вэ?"},{content:"Та ихэвчлэн ямар үед ордог вэ?"},{content:"Яагаад тэр ресторанд орох дуртай болсон бэ?"}],
-  isRecord: false
+  isRecord: false,
+  nextPage: "exam8"
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   StartRecording(){

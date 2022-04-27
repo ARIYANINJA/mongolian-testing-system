@@ -47,7 +47,20 @@ return{
     { content: 'ҮГ 1' }, { content: 'ҮГ 2' },{ content: 'ҮГ 3' },{ content: 'ҮГ 4' },{ content: 'ҮГ 5' },{ content: 'ҮГ 6' },
     { content: 'ҮГ 7' }, { content: 'ҮГ 8' }, { content: 'ҮГ 9' }
   ],
+  nextPage: "exam11"
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   playAudio(){

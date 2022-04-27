@@ -17,7 +17,7 @@
     <img class = "SoundPic" src="../assets/images/Sound.svg" alt="Sound picture">
   </div>
   <b-form-textarea
-      v-model="answer"
+        v-model="answer"
         class="textarea"
         size="lg"
         placeholder="Та Энд Бичвэрээ Бичнэ үү "
@@ -26,11 +26,10 @@
        <b-tooltip target="button" title="Та Зөвхөн 3 Удаа Аудио Бичлэг Сонсох Боломжтой"></b-tooltip>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn nextPage="exam3"/>
+     <nextPageBtn nextPage='exam3'/>
    </div>
   </div>
 </template>
-
 <script>
 import exitButton from '../components/exitButton.vue'
 import nextPageBtn from '../components/nextPageBtn.vue'
@@ -47,9 +46,22 @@ data(){
 return{
   minutes: 3,
   answer:"",
+  nextPage: "exam3",
   buttonClicked: 0,
   button: true,
 }
+},
+mounted(){
+  let time = this.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
+  let self = this
+  function updateCountdown(){
+     if(time <= 0 ){
+       self.$router.push('/' + self.nextPage);
+       clearInterval(myInverval);
+      }
+     time--;
+  }
 },
 methods:{
   playAudio(){
