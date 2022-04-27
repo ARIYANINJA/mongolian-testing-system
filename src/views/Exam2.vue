@@ -3,15 +3,21 @@
     <div class="exitBtn">
    <exitButton/>
    </div>
+   <audio
+      class="audio"
+      ref="audio"
+      src="../assets/audio/audio2.wav"
+    ></audio>
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
   <h3 class="title">Та Товчлуур Дээр Даран Сонссон Өгүүлбэрээ Бичнэ үү ! </h3>
   <div class="body">
-  <div class="button" id="button" @click="playAudio()">
+  <div v-if="button" class="button" id="button" @click="playAudio()">
     <img class = "SoundPic" src="../assets/images/Sound.svg" alt="Sound picture">
   </div>
   <b-form-textarea
+      v-model="answer"
         class="textarea"
         size="lg"
         placeholder="Та Энд Бичвэрээ Бичнэ үү "
@@ -40,11 +46,16 @@ components:{
 data(){
 return{
   minutes: 3,
+  answer:"",
+  buttonClicked: 0,
+  button: true,
 }
 },
 methods:{
   playAudio(){
-    alert("odoo end ug ni audio bichleg yavagdana");
+    this.$refs.audio.play();
+    this.buttonClicked = this.buttonClicked + 1
+    this.buttonClicked >= 3 ? this.button = false : this.button = true
   },
 },
 }
@@ -99,5 +110,8 @@ methods:{
 .textarea{
   margin: 3rem 3rem 3rem 10rem;
   font-size: 2rem;
+}
+.audio{
+  display: none;
 }
 </style>
