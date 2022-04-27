@@ -33,7 +33,7 @@
      </div>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn nextPage="exam8"/>
+     <nextPageBtn nextPage="lookPoint"/>
    </div>
   </div>
 </template>

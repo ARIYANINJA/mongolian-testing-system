@@ -6,16 +6,9 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
-  <h3 class="title">Та доорх өгөгдсөн асуултуудад "Аудио бичиж эхлэх" товчлуур даран амаараа хариулна уу</h3>
-  <div class="mainContainer">
-    <h4 class="questionTitle">{{QuestionTitle}}</h4>
-    <ul class="detailQuestion">
-      <li v-for="question in Questions" :key="question.id">
-        {{question.content}}
-      </li>
-    </ul>
-  </div>
-  <div class="btn">
+<h3 class="title">Та доорх бичигдсэн өгүүлбэрийг уншина уу ! </h3>
+<h1 class="content">{{Content}}</h1>
+<div class="btn">
   <div v-if="!isRecord" class="RecordButton" @click="StartRecording()">
     <img src="../assets/images/microphone-solid (1).svg" alt="microphone" class="Icons">
        <h3>Аудио бичлэг хийж эхлэх</h3>
@@ -33,7 +26,7 @@
      </div>
    </div>
    <div class="nextPageButton">
-     <nextPageBtn nextPage="exam8"/>
+     <nextPageBtn nextPage="exam12"/>
    </div>
   </div>
 </template>
@@ -52,9 +45,8 @@ components:{
 },
 data(){
 return{
-  minutes: 8,
-  QuestionTitle: "Таны хамгийн орох дуртай ресторан юу вэ?",
-  Questions:[{content:"Дуртай ресторан чинь хаана байдаг вэ?"},{content:"Taны дуртай хоол юу вэ?"},{content:"Та ихэвчлэн ямар үед ордог вэ?"},{content:"Яагаад тэр ресторанд орох дуртай болсон бэ?"}],
+  minutes:3,
+  Content: 'Сайн байна уу Би хөгжим сонсох дуртай',
   isRecord: false
 }
 },
@@ -91,32 +83,18 @@ methods:{
   padding-top: 3vh;
   padding-left: 85vw;
 }
-.mainContainer{
-  width: 50%;
-  padding-top: 1.5rem;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: #3c3c3c 1px solid;
-  margin-left: 25%;
-  margin-bottom: 3rem;
-}
 .title{
-  margin: 2rem 0 1rem 0;
+  margin-top: 2rem;
   text-align: center;
-  color: #3c3c3c;
 }
-.questionTitle{
-  margin-bottom: 2rem;
-  font-weight: 800;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.detailQuestion{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #3c3c3c;
-  font-size: 1.5rem;
-  padding-bottom: 1.5rem;
+.content{
+  margin: 4rem 5rem 8rem 5rem;
+  text-align: center;
+  border: 2px black solid;
+  border-radius: 20px;
+  background: #95a5a6;
+  padding:1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 .btn{
   display: flex;

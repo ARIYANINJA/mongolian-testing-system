@@ -46,6 +46,41 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Exam7.vue')
   },
   {
+    path: '/exam8',
+    name: 'Exam8',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam8.vue')
+  },
+  {
+    path: '/exam9',
+    name: 'Exam9',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam9.vue')
+  },
+  {
+    path: '/exam10',
+    name: 'Exam10',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam10.vue')
+  },
+  {
+    path: '/exam11',
+    name: 'Exam11',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam11.vue')
+  },
+  {
+    path: '/exam12',
+    name: 'Exam12',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam12.vue')
+  },
+  {
+    path: '/exam13',
+    name: 'Exam13',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam13.vue')
+  },
+  {
+    path: '/exam14',
+    name: 'Exam14',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Exam14.vue')
+  },
+  {
     path: '/lookPoint',
     name: 'LookPoint',
     component: () => import(/* webpackChunkName: "about" */ '../views/LookPoint.vue')
