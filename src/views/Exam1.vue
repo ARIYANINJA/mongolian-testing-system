@@ -49,12 +49,6 @@ return{
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
   chooseWord(){
       console.log(this.words.content);
   }

@@ -51,12 +51,6 @@ return{
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
   StartRecording(){
     this.isRecord = true
   },

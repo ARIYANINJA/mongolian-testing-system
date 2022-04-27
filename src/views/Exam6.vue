@@ -6,18 +6,20 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
-  <h3 class="title">Та Товчлуур Дээр Даран Сонссон Өгүүлбэрээ Бичнэ үү ! </h3>
-  <div class="body">
-  <div class="button" id="button" @click="playAudio()">
-    <img class = "SoundPic" src="../assets/images/Sound.svg" alt="Sound picture">
+  <h1 class="title">Та өгөгдсөн асуултанд 50 үгэнд багтаан хариулна уу</h1>
+  <div class="mainContainer">
+    <div class="question">
+      <h3 class="questionTitle">{{this.Question}}</h3>
+    </div>
+     <div class="answer">
+       <textarea id="word" class="textarea" v-model="text" placeholder="Ta асуултанд хариулна уу"
+        rows="10" cols="60">
+    </textarea>
+      <p class="wordCounter"> Үгийн тоо:
+        <span id="show">0</span>
+    </p>
+    </div>
   </div>
-  <b-form-textarea
-        class="textarea"
-        size="lg"
-        placeholder="Та Энд Бичвэрээ Бичнэ үү "
-      ></b-form-textarea>
-  </div>
-       <b-tooltip target="button" title="Та Зөвхөн 3 Удаа Аудио Бичлэг Сонсох Боломжтой"></b-tooltip>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="exam7"/>
@@ -39,19 +41,29 @@ components:{
 },
 data(){
 return{
-  minutes: 3,
+  minutes: 8,
+  Question: "Хүмүүс ажил хийдэг Учир нь тэдэнд амьдрахын тулд мөнгө хэрэг болно Гэхдээ үүнээс бусад тохиолдолд хүмүүс яагаад ажил хийх ёстой вэ?",
+  text: '',
+}
+},
+watch:{
+text(){
+  this.countWord()
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
-  playAudio(){
-    console.log("odoo end ug ni audio bichleg yavagdana");
-  },
+ countWord(){
+ let words = document.getElementById("word").value;
+ let count = 0;
+ let split = words.split(' ');
+ for (var i = 0; i < split.length; i++) {
+    if (split[i] != "") {
+        count += 1;
+      }
+  }
+document.getElementById("show")
+.innerHTML = count;
+  }
 },
 }
 </script>
@@ -78,32 +90,47 @@ methods:{
   padding-top: 3vh;
   padding-left: 85vw;
 }
-.title{
-  margin-top: 2rem;
-  text-align: center;
-}
-.body{
+.mainContainer{
   display: flex;
   flex-direction: row;
-  width:100%;
-  height: 60%;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  height: 62%;
 }
-.button{
-  border-radius: 50%;
-  width: 40rem;
-  height: 20rem;
-  background: #00b894;
-  margin-left: 3rem;
-  margin-top: 2rem;
+.title{
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  color: #3c3c3c;
 }
-.SoundPic{
-  width: 15rem;
-  height: 15rem;
-  padding-top: 5rem;
-  padding-left: 5rem;
+.mainContainer .question{
+  width: 50%;
+  height: 100%;
+}
+.questionTitle{
+  color: #3c3c3c;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: justify;
+  font-family: 'Courier New', Courier, monospace;
+}
+.mainContainer .answer{
+  width: 50%;
+  height: 100%;
+  margin: 1.5rem 2rem 1rem 3rem;
 }
 .textarea{
-  margin: 3rem 3rem 3rem 10rem;
-  font-size: 2rem;
+height: 80%;
+width: 100%;
+font-size: 1.5rem;
+border-radius: 10px;
+}
+.wordCounter{
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3c3c3c;
 }
 </style>

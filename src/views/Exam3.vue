@@ -50,12 +50,6 @@ return{
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
   playAudio(){
     alert("odoo ug ni duu sonsogdono");
   }

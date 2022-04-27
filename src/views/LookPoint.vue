@@ -23,7 +23,7 @@
 export default {
     data(){
         return{
-            MyPoint: 50,
+            MyPoint: 88,
             TotalPoint: 100
         }
     },

@@ -56,15 +56,6 @@ return{
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
-  playAudio(){
-    console.log("odoo end ug ni audio bichleg yavagdana");
-  },
 },
 }
 </script>

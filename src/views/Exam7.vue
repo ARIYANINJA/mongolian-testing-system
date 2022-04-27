@@ -6,18 +6,10 @@
    <div class="container">
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
-  <h3 class="title">Та Товчлуур Дээр Даран Сонссон Өгүүлбэрээ Бичнэ үү ! </h3>
-  <div class="body">
-  <div class="button" id="button" @click="playAudio()">
-    <img class = "SoundPic" src="../assets/images/Sound.svg" alt="Sound picture">
+  <h3 class="title">Та доорх өгөгдсөн асуултуудад "Аудио бичиж эхлэх" товчлуур даран амаараа хариулна уу</h3>
+  <div class="mainContainer">
+    lol
   </div>
-  <b-form-textarea
-        class="textarea"
-        size="lg"
-        placeholder="Та Энд Бичвэрээ Бичнэ үү "
-      ></b-form-textarea>
-  </div>
-       <b-tooltip target="button" title="Та Зөвхөн 3 Удаа Аудио Бичлэг Сонсох Боломжтой"></b-tooltip>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="lookPoint"/>
@@ -39,19 +31,24 @@ components:{
 },
 data(){
 return{
-  minutes: 3,
+  minutes: 8,
+  QuestionTitle: "Хүмүүс ажил хийдэг Учир нь тэдэнд амьдрахын тулд мөнгө хэрэг болно Гэхдээ үүнээс бусад тохиолдолд хүмүүс яагаад ажил хийх ёстой вэ?",
+  Questions:[{question:"dsdsss"},{question:"dsdsss"},{question:"dsdsss"},{question:"dsdsss"}]
 }
 },
 methods:{
-  Exit(){
-    this.isHomePage = true
-  },
-  getExam(){
-    this.isHomePage = false
-  },
-  playAudio(){
-    console.log("odoo end ug ni audio bichleg yavagdana");
-  },
+  countWord(){
+ let words = document.getElementById("word").value;
+ let count = 0;
+ let split = words.split(' ');
+ for (var i = 0; i < split.length; i++) {
+    if (split[i] != "") {
+        count += 1;
+      }
+  }
+document.getElementById("show")
+.innerHTML = count;
+  }
 },
 }
 </script>
@@ -78,32 +75,18 @@ methods:{
   padding-top: 3vh;
   padding-left: 85vw;
 }
-.title{
-  margin-top: 2rem;
-  text-align: center;
-}
-.body{
+.mainContainer{
   display: flex;
   flex-direction: row;
-  width:100%;
-  height: 60%;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  height: 62%;
 }
-.button{
-  border-radius: 50%;
-  width: 40rem;
-  height: 20rem;
-  background: #00b894;
-  margin-left: 3rem;
-  margin-top: 2rem;
-}
-.SoundPic{
-  width: 15rem;
-  height: 15rem;
-  padding-top: 5rem;
-  padding-left: 5rem;
-}
-.textarea{
-  margin: 3rem 3rem 3rem 10rem;
-  font-size: 2rem;
+.title{
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  color: #3c3c3c;
 }
 </style>
