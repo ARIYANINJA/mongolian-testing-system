@@ -8,8 +8,29 @@
   <progressBar :StartingMinutes = 'this.minutes'/>
   <h3 class="title">Та доорх өгөгдсөн асуултуудад "Аудио бичиж эхлэх" товчлуур даран амаараа хариулна уу</h3>
   <div class="mainContainer">
-    lol
+    <h4 class="questionTitle">{{QuestionTitle}}</h4>
+    <ul class="detailQuestion">
+      <li v-for="question in Questions" :key="question.id">
+        {{question.content}}
+      </li>
+    </ul>
   </div>
+  <div class="btn">
+  <div v-if="!isRecord" class="RecordButton" @click="StartRecording()">
+    <img src="../assets/images/microphone-solid (1).svg" alt="microphone" class="Icons">
+       <h3>Аудио бичлэг хийж эхлэх</h3>
+     </div>
+     <div class="MainEndRecord" v-else>
+     <div class="RecordingSection" >
+       <button class="Rec"></button>
+    <p>Аудио бичлэг хийж байна</p>
+  </div>
+  <div class="RecordButton" @click="EndRecording()">
+    <img src="../assets/images/microphone-slash-solid.svg" alt="Mute-Microphone" class="Icons">
+       <h3>Аудио бичлэгийг дуусгах</h3>
+     </div>
+     </div>
+     </div>
    </div>
    <div class="nextPageButton">
      <nextPageBtn nextPage="lookPoint"/>
@@ -32,22 +53,17 @@ components:{
 data(){
 return{
   minutes: 8,
-  QuestionTitle: "Хүмүүс ажил хийдэг Учир нь тэдэнд амьдрахын тулд мөнгө хэрэг болно Гэхдээ үүнээс бусад тохиолдолд хүмүүс яагаад ажил хийх ёстой вэ?",
-  Questions:[{question:"dsdsss"},{question:"dsdsss"},{question:"dsdsss"},{question:"dsdsss"}]
+  QuestionTitle: "Таны хамгийн орох дуртай ресторан юу вэ?",
+  Questions:[{content:"Дуртай ресторан чинь хаана байдаг вэ?"},{content:"Taны дуртай хоол юу вэ?"},{content:"Та ихэвчлэн ямар үед ордог вэ?"},{content:"Яагаад тэр ресторанд орох дуртай болсон бэ?"}],
+  isRecord: false
 }
 },
 methods:{
-  countWord(){
- let words = document.getElementById("word").value;
- let count = 0;
- let split = words.split(' ');
- for (var i = 0; i < split.length; i++) {
-    if (split[i] != "") {
-        count += 1;
-      }
-  }
-document.getElementById("show")
-.innerHTML = count;
+  StartRecording(){
+    this.isRecord = true
+  },
+  EndRecording(){
+    this.isRecord = false
   }
 },
 }
@@ -76,17 +92,98 @@ document.getElementById("show")
   padding-left: 85vw;
 }
 .mainContainer{
+  width: 50%;
+  padding-top: 1.5rem;
+  height: 40%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: 100%;
-  height: 100%;
-  padding-top: 2rem;
-  height: 62%;
+  flex-direction: column;
+  align-items: center;
+  border: #3c3c3c 1px solid;
+  margin-left: 25%;
+  margin-bottom: 3rem;
 }
 .title{
   margin: 2rem 0 1rem 0;
   text-align: center;
   color: #3c3c3c;
+}
+.questionTitle{
+  margin-bottom: 2rem;
+  font-weight: 800;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.detailQuestion{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3c3c3c;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+.MainEndRecord{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.RecordButton{
+  padding: 1rem;
+  background: #00b894;
+  border: 2px solid white;
+  border-radius: 20px;
+  text-align: center;
+  width: 30rem;
+  height: 4.5rem;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.RecordingSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  padding-right: 5rem;
+  font-size: 1.5rem;
+  color: #00b894;
+}
+.RecordingSection button{
+  width: 35px;
+  height: 35px;
+  font-size: 0;
+  background-color: #00b894;
+  border: 0;
+  border-radius: 35px;
+  outline: none;
+  margin-right: 1rem;
+}
+.Rec{
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 5px 0px #01d2a8;
+  }
+  65% {
+    box-shadow: 0px 0px 5px 13px #00e3b5;
+  }
+  90% {
+    box-shadow: 0px 0px 5px 13px #00fecb;
+  }
+}
+.Icons{
+  width: 5rem;
+  height: 3rem;
+  padding-bottom: 0.5rem;
 }
 </style>
