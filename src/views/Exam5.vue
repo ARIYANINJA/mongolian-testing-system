@@ -56,18 +56,18 @@ return{
   nextPage: "exam6"
 }
 },
-mounted(){
-  let self = this
-  let time = self.minutes * 60;
-  const myInverval = setInterval(updateCountdown,1000);
-  function updateCountdown(){
-     if(time <= 0 ){
-       self.$router.push('/' + self.nextPage);
-       clearInterval(myInverval);
-      }
-     time--;
-  }
-},
+// mounted(){
+//   let self = this
+//   let time = self.minutes * 60;
+//   const myInverval = setInterval(updateCountdown,1000);
+//   function updateCountdown(){
+//      if(time <= 0 ){
+//        self.$router.push('/' + self.nextPage);
+//        clearInterval(myInverval);
+//       }
+//      time--;
+//   }
+// },
 methods:{
 },
 }

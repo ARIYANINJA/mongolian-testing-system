@@ -51,18 +51,18 @@ return{
   nextPage: "exam12"
 }
 },
-mounted(){
-  let time = this.minutes * 60;
-  const myInverval = setInterval(updateCountdown,1000);
-  let self = this
-  function updateCountdown(){
-     if(time <= 0 ){
-       self.$router.push('/' + self.nextPage);
-       clearInterval(myInverval);
-      }
-     time--;
-  }
-},
+// mounted(){
+//   let time = this.minutes * 60;
+//   const myInverval = setInterval(updateCountdown,1000);
+//   let self = this
+//   function updateCountdown(){
+//      if(time <= 0 ){
+//        self.$router.push('/' + self.nextPage);
+//        clearInterval(myInverval);
+//       }
+//      time--;
+//   }
+// },
 methods:{
   StartRecording(){
     this.isRecord = true

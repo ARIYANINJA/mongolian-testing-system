@@ -54,18 +54,18 @@ return{
   nextPage: "exam11"
 }
 },
-mounted(){
-  let time = this.minutes * 60;
-  const myInverval = setInterval(updateCountdown,1000);
-  let self = this
-  function updateCountdown(){
-     if(time <= 0 ){
-       self.$router.push('/' + self.nextPage);
-       clearInterval(myInverval);
-      }
-     time--;
-  }
-},
+// mounted(){
+//   let time = this.minutes * 60;
+//   const myInverval = setInterval(updateCountdown,1000);
+//   let self = this
+//   function updateCountdown(){
+//      if(time <= 0 ){
+//        self.$router.push('/' + self.nextPage);
+//        clearInterval(myInverval);
+//       }
+//      time--;
+//   }
+// },
 methods:{
   playAudio(){
     document.getElementById('audio').play();
