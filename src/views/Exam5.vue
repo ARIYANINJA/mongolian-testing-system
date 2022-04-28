@@ -57,9 +57,9 @@ return{
 }
 },
 mounted(){
-  let time = this.minutes * 60;
-  const myInverval = setInterval(updateCountdown,1000);
   let self = this
+  let time = self.minutes * 60;
+  const myInverval = setInterval(updateCountdown,1000);
   function updateCountdown(){
      if(time <= 0 ){
        self.$router.push('/' + self.nextPage);
