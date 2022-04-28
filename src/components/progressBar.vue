@@ -18,7 +18,7 @@
       this.max = this.StartingMinutes * 60;
       const myInverval = setInterval(updateCountdown, 1000);
       let self = this;
-  function updateCountdown() {
+      function updateCountdown() {
         self.value++;
         if(self.value === self.max){
           clearInterval(myInverval);

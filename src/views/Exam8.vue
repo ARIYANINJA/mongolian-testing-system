@@ -39,20 +39,21 @@ components:{
 },
 data(){
 return{
-  minutes: 3,
+  minutes: 2,
+  nextPage: "exam9",
   words: [
-    { content: 'гишүүн' }, { content: 'хуваацах' },{ content: 'сурах' },{ content: 'бйах' },{ content: 'санух' },{ content: 'хитэрхии' },
-    { content: 'хөгжэлтэй' }, { content: 'чрих' },{ content: 'нөгөөдөр' },{ content: 'туулах' },{ content: 'хэлээр' },{ content: 'шаргуу' },
-    { content: 'санаа' }, { content: 'сонголг' },{ content: 'хүймүйс' },{ content: 'марафон' },{ content: 'утас' },{ content: 'герээ' },
+    { content: 'Гитар', status: true }, { content: 'сойлгой', status: false },{ content: 'бичих', status: true },{ content: 'естүй', status: false },
+    { content: 'серээх', status: false },{ content: 'сарний', status: false },{ content: 'сармас', status: false }, { content: 'чичигхэн', status: false },{ content: 'маргааш', status: true },{ content: 'цахилгаан', status: true },{ content: 'монгол', status: true },{ content: 'франц', status: true },
+    { content: 'сэтгэлгээ', status: true }, { content: 'хугана', status: false },{ content: 'эргэд', status: false },{ content: 'чөтгөр', status: true },
+    { content: 'интернэт', status: true },{ content: 'бугуун цаг', status: false },
   ],
   choosenWord:[{}],
-  nextPage: "exam9"
 }
 },
 mounted(){
   let time = this.minutes * 60;
   const myInverval = setInterval(updateCountdown,1000);
-  let self = this
+  let self = this;
   function updateCountdown(){
      if(time <= 0 ){
        self.$router.push('/' + self.nextPage);

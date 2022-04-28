@@ -4,6 +4,7 @@
    <exitButton/>
    </div>
    <div class="container">
+     <audio id="audio" src='../assets/audio/word1.wav'></audio>
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
   <h3 class="title">Зөв Бичигдсэн Монгол Үгнүүдийг Сонгоно уу ! </h3>
@@ -12,8 +13,8 @@
       <li v-for="word in words" :key="word.id">
       <label class="option_item" id="option_item">
       <input type="checkbox" class="checkbox">
-      <div @click="playAudio()" class="option_inner all">
-        <img class = "iconBtn" src="../assets/images/Sound.svg" alt="sound">
+      <div class="option_inner all"> 
+        <img @click="playAudio()" class = "iconBtn" src="../assets/images/Sound.svg" alt="sound">
         <div class="name">{{word.content}}</div>
       </div>
     </label>
@@ -45,8 +46,11 @@ return{
   minutes: 3,
   nextPage:"exam4",
     words: [
-    { content: 'ҮГ 1' }, { content: 'ҮГ 2' },{ content: 'ҮГ 3' },{ content: 'ҮГ 4' },{ content: 'ҮГ 5' },{ content: 'ҮГ 6' },
-    { content: 'ҮГ 7' }, { content: 'ҮГ 8' }, { content: 'ҮГ 9' }
+    { content: 'ҮГ 1', audio:"../assets/audio/word1.wav"}, { content: 'ҮГ 2', audio:"../assets/audio/word2.wav"},
+    { content: 'ҮГ 3', audio:"../assets/audio/word3.wav"},{ content: 'ҮГ 4', audio:"../assets/audio/word4.wav"},
+    { content: 'ҮГ 5', audio:"../assets/audio/word5.wav"},{ content: 'ҮГ 6', audio:"../assets/audio/word6.wav"},
+    { content: 'ҮГ 7', audio:"../assets/audio/word7.wav"}, { content: 'ҮГ 8', audio:"../assets/audio/word8.wav"},
+    { content: 'ҮГ 9', audio:"../assets/audio/word9.wav"}
   ],
 }
 },
@@ -64,7 +68,7 @@ mounted(){
 },
 methods:{
   playAudio(){
-    alert("odoo ug ni duu sonsogdono");
+    document.getElementById('audio').play();
   }
 },
 }
@@ -145,5 +149,8 @@ methods:{
 .iconBtn{
   width: 2.5rem;
   height: 2.5rem;
+}
+.audio{
+  display: none;
 }
 </style>

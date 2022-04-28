@@ -39,12 +39,13 @@ components:{
 },
 data(){
 return{
-  minutes: 3,
+  minutes: 2,
   nextPage: 'exam2',
   words: [
-    { content: 'гишүүн' }, { content: 'хуваацах' },{ content: 'сурах' },{ content: 'бйах' },{ content: 'санух' },{ content: 'хитэрхии' },
-    { content: 'хөгжэлтэй' }, { content: 'чрих' },{ content: 'нөгөөдөр' },{ content: 'туулах' },{ content: 'хэлээр' },{ content: 'шаргуу' },
-    { content: 'санаа' }, { content: 'сонголг' },{ content: 'хүймүйс' },{ content: 'марафон' },{ content: 'утас' },{ content: 'герээ' },
+    { content: 'гишүүн', status: true }, { content: 'хуваацах', status: false },{ content: 'сурах', status: true },{ content: 'бйах', status: false },
+    { content: 'санух', status: false },{ content: 'хитэрхии', status: false },{ content: 'хөгжэлтэй', status: false }, { content: 'чрих', status: false },{ content: 'нөгөөдөр', status: true },{ content: 'туулах', status: true },{ content: 'хэлээр', status: true },{ content: 'шаргуу', status: true },
+    { content: 'санаа', status: true }, { content: 'сонголг', status: false },{ content: 'хүймүйс', status: false },{ content: 'марафон', status: true },
+    { content: 'утас', status: true },{ content: 'герээ', status: false },
   ],
   choosenWord:[{}]
 }
