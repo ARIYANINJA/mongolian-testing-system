@@ -9,11 +9,11 @@
   <h3 class="title">Зөв Бичигдсэн Монгол Үгнүүдийг Сонгоно уу ! </h3>
   <div class="words">
     <ul style="list-style:none;">
-      <li v-for="word in words" :key="word.id">
+      <li v-for="word in words.data" :key="word">
       <label class="option_item">
       <input type="checkbox" class="checkbox">
       <div class="option_inner all">
-        <div class="name">{{word.content}}</div>
+        <div class="name">{{word.attributes.content}}</div>
       </div>
     </label>
       </li>
@@ -41,14 +41,13 @@ data(){
 return{
   minutes: 2,
   nextPage: 'exam2',
-  words: [
-    { content: 'гишүүн', status: true }, { content: 'хуваацах', status: false },{ content: 'сурах', status: true },{ content: 'бйах', status: false },
-    { content: 'санух', status: false },{ content: 'хитэрхии', status: false },{ content: 'хөгжэлтэй', status: false }, { content: 'чрих', status: false },{ content: 'нөгөөдөр', status: true },{ content: 'туулах', status: true },{ content: 'хэлээр', status: true },{ content: 'шаргуу', status: true },
-    { content: 'санаа', status: true }, { content: 'сонголг', status: false },{ content: 'хүймүйс', status: false },{ content: 'марафон', status: true },
-    { content: 'утас', status: true },{ content: 'герээ', status: false },
-  ],
+  words:[],
   choosenWord:[{}]
 }
+},
+created: async function(){
+const res = await fetch("http://localhost:1337/api/exam1s");
+this.words = await res.json();
 },
 // mounted(){
 //   let self = this
@@ -61,11 +60,11 @@ return{
 //       }
 //      time--;
 //   }
-// },
+//   },
 methods:{
   chooseWord(){
       console.log(this.words.content);
-  }
+  },
 },
 }
 </script>
