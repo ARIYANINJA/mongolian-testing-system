@@ -7,7 +7,9 @@
   <countdown :StartingMinutes = 'this.minutes'/>
   <progressBar :StartingMinutes = 'this.minutes'/>
 <h3 class="title">Та доорх бичигдсэн өгүүлбэрийг уншина уу ! </h3>
-<h1 class="content">{{Content}}</h1>
+<div v-for="word in content.data" :key="word">
+<h1 class="content">{{word.attributes.name}}</h1>
+</div>
 <div class="btn">
   <div v-if="!isRecord" class="RecordButton" @click="StartRecording()">
     <img src="../assets/images/microphone-solid (1).svg" alt="microphone" class="Icons">
@@ -46,10 +48,14 @@ components:{
 data(){
 return{
   minutes:3,
-  Content: 'Сайн байна уу Би хөгжим сонсох дуртай',
+  content: "",
   isRecord: false,
   nextPage: "exam12"
 }
+},
+created: async function(){
+const res = await fetch("http://localhost:1337/api/exam11s");
+this.content = await res.json();
 },
 // mounted(){
 //   let time = this.minutes * 60;
