@@ -9,19 +9,19 @@
   <div class="mainContainer">
     <div class="essay">
       <h2 class = "essayTitle">Цогцолбор</h2>
-      <p class="content">
-        {{this.Content}}
+      <p class="content" v-for="n in content.data" :key="n">
+        {{n.attributes.name}}
       </p>
     </div>
     <div class="radioBtn">
       <h3 class="RadioTitle">Энэхүү Цогцолборт таарах гарчиг өгнө үү </h3>
       <div class="tests">
       <ul style="list-style: none;">
-        <li v-for="test in tests" :key="test.id">
+       <li v-for="test in tests.data" :key="test">
           <label class="option_item">
       <input name=test.content value=test.content id=test.content type="radio" class="checkbox">
       <div class="option_inner all">
-        <div class="name">{{test.content}}</div>
+        <div class="name">{{test.attributes.titles}}</div>
       </div>
     </label>
         </li>
@@ -51,10 +51,16 @@ components:{
 data(){
 return{
   minutes: 3,
-  Content: "Манай оронд асга хадтай уул олон байдаг.Ийм ууланд жижиг сэнж нүхнээс эхлээд том хонгил ч байдаг. Ийм агуйг бүр эртний хүмүүс орон сууц болгож хэрэглэж байжээ. Агуй бол байгалийн сонин зүйлийн нэг юм. Тэндээс түүх дурсгалын ховор сонин зүйл ч олдож болно",
-  tests:[{content:"Агуй"},{content:"Нуур"},{content:"Хүмүүс"},{content:"Байгаль"},],
+  content:[],
+  tests:[],
   nextPage: "exam13"
 }
+},
+created: async function(){
+const res = await fetch("http://localhost:1337/api/exam5s");
+const Parares = await fetch("http://localhost:1337/api/exam5-paragraphs");
+this.tests = await res.json();
+this.content = await Parares.json();
 },
 // mounted(){
 //   let time = this.minutes * 60;
