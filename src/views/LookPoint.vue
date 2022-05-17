@@ -9,7 +9,7 @@
           </div>
           <div class="texts">
           <h1>ТООЦООЛСОН ОНОО:</h1>
-          <h1 class="point">{{this.MyPoint}} - {{this.TotalPoint}}</h1>
+          <h1 class="point" v-for="point in points.data" :key="point">{{point.attributes.currentPoint}} - {{point.attributes.generalPoint}}</h1>
           </div>
       </div>
       <div class="footer">
@@ -23,10 +23,15 @@
 export default {
     data(){
         return{
-            MyPoint: 88,
-            TotalPoint: 100
+            points:[]
+            // MyPoint: 88,
+            // TotalPoint: 100
         }
     },
+    created: async function(){
+const res = await fetch("http://localhost:1337/api/look-points");
+this.points = await res.json();
+},
   methods:{
         BackToHome(){
         this.$router.push('/');
