@@ -9,7 +9,7 @@
   <h1 class="title">Та өгөгдсөн асуултанд 50 үгэнд багтаан хариулна уу</h1>
   <div class="mainContainer">
     <div class="question">
-      <h3 class="questionTitle">{{this.Question}}</h3>
+      <h3 class="questionTitle" v-for="ques in Question.data" :key="ques">{{ques.attributes.content}}</h3>
     </div>
      <div class="answer">
        <textarea id="word" class="textarea" v-model="text" placeholder="Ta асуултанд хариулна уу"
@@ -42,10 +42,14 @@ components:{
 data(){
 return{
   minutes: 5,
-  Question: "Хүмүүс ажил хийдэг Учир нь тэдэнд амьдрахын тулд мөнгө хэрэг болно Гэхдээ үүнээс бусад тохиолдолд хүмүүс яагаад ажил хийх ёстой вэ?",
+  Question: [],
   text: '',
   nextPage: "exam14"
 }
+},
+created: async function(){
+const res = await fetch("http://localhost:1337/api/exam13s");
+this.Question = await res.json();
 },
 // mounted(){
 //   let self = this
