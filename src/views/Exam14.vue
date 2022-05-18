@@ -8,10 +8,10 @@
   <progressBar :StartingMinutes = 'this.minutes'/>
   <h3 class="title">Та доорх өгөгдсөн асуултуудад "Аудио бичиж эхлэх" товчлуур даран амаараа хариулна уу</h3>
   <div class="mainContainer">
-    <h4 class="questionTitle">{{QuestionTitle}}</h4>
+    <h4 class="questionTitle" v-for="ques in QuestionTitle.data" :key="ques">{{ques.attributes.question}}</h4>
     <ul class="detailQuestion">
-      <li v-for="question in Questions" :key="question.id">
-        {{question.content}}
+      <li v-for="question in Questions.data" :key="question">
+        {{question.attributes.question}}
       </li>
     </ul>
   </div>
@@ -53,11 +53,17 @@ components:{
 data(){
 return{
   minutes: 8,
-  QuestionTitle: "Таны хамгийн орох дуртай ресторан юу вэ?",
-  Questions:[{content:"Дуртай ресторан чинь хаана байдаг вэ?"},{content:"Taны дуртай хоол юу вэ?"},{content:"Та ихэвчлэн ямар үед ордог вэ?"},{content:"Яагаад тэр ресторанд орох дуртай болсон бэ?"}],
+  QuestionTitle: [],
+  Questions:[],
   isRecord: false,
   nextPage: "lookPoint"
 }
+},
+created: async function(){
+const res = await fetch("http://localhost:1337/api/exam14s");
+this.QuestionTitle = await res.json();
+const resSub = await fetch("http://localhost:1337/api/exam14-subs");
+this.Questions = await resSub.json();
 },
 // mounted(){
 //   let time = this.minutes * 60;
